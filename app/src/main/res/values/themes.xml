@@ -1,15 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.BootStream" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Base application theme with enforced dark mode -->
+    <style name="Base.Theme.BootStream" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Customize your dark theme here -->
         <item name="colorPrimaryVariant">@color/purple_700</item>
+        <!-- Add more dark mode specific colors if needed -->
     </style>
 
-
+    <!-- Main application theme -->
     <style name="Theme.BootStream" parent="Base.Theme.BootStream" />
-    <style name="Theme.BootStream.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <!-- Overlay for AppBar -->
+    <style name="Theme.BootStream.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
+
+    <!-- NoActionBar theme -->
     <style name="Theme.BootStream.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

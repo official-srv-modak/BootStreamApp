@@ -46,13 +46,13 @@ dependencies {
 
 
     // Updated CameraX dependencies
-    implementation("androidx.camera:camera-core:1.3.0")
-    implementation("androidx.camera:camera-camera2:1.3.0")
-    implementation("androidx.camera:camera-view:1.3.0")
-    implementation("androidx.camera:camera-lifecycle:1.3.0")
+    implementation(libs.camera.core.v140)
+    implementation(libs.camera.camera2.v140)
+    implementation(libs.camera.view)
+    implementation(libs.camera.lifecycle)
 
-    implementation ("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation (libs.glide)
+    annotationProcessor (libs.compiler)
 
     implementation(libs.okhttp)
 

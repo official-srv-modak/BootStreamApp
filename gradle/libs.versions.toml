@@ -1,6 +1,8 @@
 [versions]
 agp = "8.6.0"
+cameraCamera2 = "1.4.0"
 cameraCore = "1.5.0"
+cameraCoreVersion = "1.4.0"
 cameraLifecycleVersion = "1.5.0"
 cameraViewVersion = "1.5.0"
 glide = "4.12.0"
@@ -19,7 +21,9 @@ uiToolingPreviewAndroid = "1.7.5"
 
 [libraries]
 camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraCore" }
+camera-camera2-v140 = { module = "androidx.camera:camera-camera2", version.ref = "cameraCamera2" }
 camera-core = { module = "androidx.camera:camera-core", version.ref = "cameraCore" }
+camera-core-v140 = { module = "androidx.camera:camera-core", version.ref = "cameraCoreVersion" }
 camera-extensions = { module = "androidx.camera:camera-extensions", version.ref = "cameraCore" }
 camera-lifecycle-v150 = { module = "androidx.camera:camera-lifecycle", version.ref = "cameraLifecycleVersion" }
 camera-view-v150 = { module = "androidx.camera:camera-view", version.ref = "cameraViewVersion" }

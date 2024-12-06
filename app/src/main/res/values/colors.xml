@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#9CDAFA</color>
-    <color name="purple_500">#34B0E6</color>
-    <color name="purple_700">#1798CD</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="red">#1798CD</color>
+    <!-- Primary colors -->
+    <color name="purple_200">#9CDAFA</color> <!-- Soft accent for light areas -->
+    <color name="purple_500">#34B0E6</color> <!-- Stronger accent for emphasis -->
+    <color name="purple_700">#1798CD</color> <!-- Dark accent -->
+    <color name="teal_200">#03DAC5</color> <!-- Muted secondary -->
+    <color name="teal_700">#018786</color> <!-- Dark secondary -->
 
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <!-- Neutral colors -->
+    <color name="black">#000000</color> <!-- Pure black for backgrounds -->
+    <color name="white">#FFFFFF</color> <!-- Pure white for text -->
+    <color name="red">#CF6679</color> <!-- Alert red for errors -->
 
+    <!-- Application colors -->
+    <color name="colorPrimary">#1798CD</color> <!-- Vibrant primary color -->
+    <color name="colorPrimaryDark">#00574B</color> <!-- Darkened primary -->
+    <color name="colorAccent">#03DAC5</color> <!-- Accent color for contrast -->
+
+    <!-- Backgrounds -->
+    <color name="backgroundDark">#121212</color> <!-- Dark mode background -->
+    <color name="surfaceDark">#1E1E1E</color> <!-- Card/Panel background -->
+    <color name="textPrimary">#FFFFFF</color> <!-- Main text color -->
+    <color name="textSecondary">#B3B3B3</color> <!-- Secondary text -->
 </resources>
