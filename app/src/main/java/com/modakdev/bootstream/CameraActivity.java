@@ -34,12 +34,15 @@ import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -205,12 +208,13 @@ public class CameraActivity extends AppCompatActivity {
         runOnUiThread(() -> showLoadingDialog()); // Show loading screen
 
         new Thread(() -> {
+            Response response = null;
             try {
                 // Configure OkHttpClient with timeouts
                 OkHttpClient client = new OkHttpClient.Builder()
-                        .connectTimeout(60, java.util.concurrent.TimeUnit.SECONDS) // 60 seconds for connection
-                        .readTimeout(60, java.util.concurrent.TimeUnit.SECONDS) // 60 seconds for reading
-                        .writeTimeout(60, java.util.concurrent.TimeUnit.SECONDS) // 60 seconds for writing
+                        .connectTimeout(60, TimeUnit.SECONDS) // 60 seconds for connection
+                        .readTimeout(60, TimeUnit.SECONDS) // 60 seconds for reading
+                        .writeTimeout(60, TimeUnit.SECONDS) // 60 seconds for writing
                         .build();
 
                 RequestBody requestBody = new MultipartBody.Builder()
@@ -224,7 +228,7 @@ public class CameraActivity extends AppCompatActivity {
                         .post(requestBody)
                         .build();
 
-                Response response = client.newCall(request).execute();
+                response = client.newCall(request).execute();
 
                 // Handle API response
                 if (response.isSuccessful() && response.body() != null) {
@@ -242,9 +246,29 @@ public class CameraActivity extends AppCompatActivity {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                Response finalResponse = response;
+
                 runOnUiThread(() -> {
                     dismissLoadingDialog(); // Dismiss loading screen
-                    Toast.makeText(this, "Error, seems the image isn't a known poster.", Toast.LENGTH_SHORT).show();
+                    String responseBody = null;
+                    try {
+                        responseBody = finalResponse.body().string();
+                        // Parse it as JSON
+                        JSONObject jsonObject = new JSONObject(responseBody);
+
+                        // Extract the "error" value
+                        String errorMessage = jsonObject.optString("error", "Some error");
+                        Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
+
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (JSONException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    finally {
+                        Toast.makeText(this, "Seems some error.", Toast.LENGTH_LONG).show();
+
+                    }
                 });
             }
         }).start();
