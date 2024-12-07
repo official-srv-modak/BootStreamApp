@@ -12,6 +12,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -101,20 +102,21 @@ public class Profiles extends AppCompatActivity {
         ipInfoFilePath = getApplicationContext().getFilesDir().getAbsolutePath() + "/ipInfo.dat";
         ip = fetchIpDataFromFile(ipInfoFilePath);
 
-        domain_name = "http://"+ip+"/";
-        record_position_path = domain_name+"record_position.php";
-        delete_position_path = domain_name+"delete_from_shows_watched.php";
-        get_shows_watched_path = domain_name+"get_shows_watched.php?username=admin";
-        reset_profile = domain_name+"reset_profile.php?username=admin";
-        get_movies_list = domain_name+"get_movies_list_json.php";
-        reload_shows_watched = domain_name+"reload_shows_watched.php";
-        search_shows = domain_name+"search_show.php";
-        get_profiles = domain_name+"get_profiles.php";
-        reload_description = domain_name+"reload_description.php";
-        get_description = domain_name+"get_description.php";
-        add_profile = domain_name+"add_profile.php";
-        reset_show = domain_name+"reset_show.php";
-        upload = domain_name+"upload.php";
+        domain_name = "http://"+ip;
+        record_position_path = domain_name+"/record_position.php";
+        delete_position_path = domain_name+"/delete_from_shows_watched.php";
+        get_shows_watched_path = domain_name+"/get_shows_watched.php?username=admin";
+        reset_profile = domain_name+"/reset_profile.php?username=admin";
+        get_movies_list = domain_name+"/get_movies_list_json.php";
+        reload_shows_watched = domain_name+"/reload_shows_watched.php";
+        search_shows = domain_name+"/search_show.php";
+        get_profiles = domain_name+"/get_profiles.php";
+        reload_description = domain_name+"/reload_description.php";
+        get_description = domain_name+"/get_description.php";
+        add_profile = domain_name+"/add_profile.php";
+        reset_show = domain_name+"/reset_show.php";
+        upload = domain_name+"/upload.php";
+        trailer = domain_name+":8089/arcinema-image-search/get-url";
         actResume = 0;
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
@@ -144,6 +146,53 @@ public class Profiles extends AppCompatActivity {
         LoadCard ld = new LoadCard();
         ld.execute(get_profiles);
 
+        Button resetIpButton = findViewById(R.id.resetIp);
+        resetIpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showServerDialogNoExit(getString(R.string.reset_ip_message));
+            }
+        });
+
+    }
+
+    public void showServerDialogNoExit(String Message)
+    {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(Message);
+
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Movies.writeIpData("192.168.0.4");
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Profiles.this);
+                builder.setMessage("Enter Server's Local IP Address");
+                final EditText input = new EditText(Profiles.this);
+                input.setHint("IP Address");
+                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Profiles.writeIpData(ipInfoFilePath, input.getText().toString().trim());
+                        ip = input.getText().toString().trim();
+                        Intent intent = new Intent(Profiles.this, SplashScreen.class);
+                        finish();
+                        startActivity(intent);
+                    }
+                });
+                builder.show();
+            }
+        });
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        alertDialogBuilder.show();
     }
 
     /*boolean hasAnimationStarted;

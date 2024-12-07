@@ -46,6 +46,7 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
@@ -56,6 +57,14 @@
                 android:layout_gravity="center"
                 android:text="Loading Profiles... Please wait"
                 android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/resetIp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:text="Reset Ip" />
         </LinearLayout>
     </ScrollView>
 

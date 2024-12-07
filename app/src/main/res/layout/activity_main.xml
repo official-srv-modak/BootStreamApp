@@ -5,8 +5,7 @@
     android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusableInTouchMode="true"
-    >
+    android:focusableInTouchMode="true">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar1"
@@ -21,7 +20,7 @@
         android:layout_height="match_parent"
         app:headerLayout="@layout/menu_header"
         app:menu="@menu/nav_drawer_menu"
-        android:layout_gravity="start"/>
+        android:layout_gravity="start" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/swipeRefreshMain"
@@ -62,9 +61,10 @@
                     android:scaleY="4"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/searchBtn"
-                    app:layout_constraintHorizontal_bias="0.533"
+                    app:layout_constraintHorizontal_bias="0.553"
                     app:layout_constraintStart_toEndOf="@+id/menu"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.487"
                     app:srcCompat="@drawable/modakflix" />
 
                 <ImageButton
@@ -95,6 +95,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <!-- Floating Action Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:src="@drawable/baseline_camera_24"
+            app:backgroundTint="@color/black"
+            app:tint="@color/white" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

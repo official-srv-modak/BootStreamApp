@@ -154,8 +154,8 @@ public class Movies extends Fragment {
 
     public void refreshData(int actResumeFlag)
     {
-        get_shows_watched_path = domain_name+"get_shows_watched.php?username="+username;
-        reset_profile = domain_name+"reset_profile.php?username="+username;
+        get_shows_watched_path = domain_name+"/get_shows_watched.php?username="+username;
+        reset_profile = domain_name+"/reset_profile.php?username="+username;
         if(actResumeFlag == 1)
         {
             pullToRefresh = getView().findViewById(R.id.swipeRefresh);

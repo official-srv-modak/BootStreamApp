@@ -10,7 +10,7 @@
     <!-- Neutral colors -->
     <color name="black">#000000</color> <!-- Pure black for backgrounds -->
     <color name="white">#FFFFFF</color> <!-- Pure white for text -->
-    <color name="red">#CF6679</color> <!-- Alert red for errors -->
+    <color name="red">#000000</color> <!-- Alert red for errors -->
 
     <!-- Application colors -->
     <color name="colorPrimary">#1798CD</color> <!-- Vibrant primary color -->
