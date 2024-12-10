@@ -295,6 +295,7 @@ public class Movies extends Fragment {
                                 progressBarH.setProgress(remaining);
                                 ImageView imageView = (ImageView) view.findViewById(R.id.image);
                                 String album_art_path = card.getString("album_art_path");
+                                String id = card.getString("id");
                                 if(!album_art_path.isEmpty())
                                     Glide.with(getContext()).load(album_art_path).into(imageView);
 
@@ -304,6 +305,7 @@ public class Movies extends Fragment {
                                         Intent intent = new Intent(getContext(), Description.class);
                                         intent.putExtra("description", card.toString());
                                         intent.putExtra("username", username);
+                                        intent.putExtra("id", id);
                                         //intent.putExtra("url", get_shows_watched_path);
                                         intent.putExtra("resumeFlag", "1");
                                         getActivity().startActivity(intent);
@@ -350,13 +352,14 @@ public class Movies extends Fragment {
                                 String album_art_path = card.getString("album_art_path");
                                 if(!album_art_path.isEmpty())
                                     Glide.with(getContext()).load(album_art_path).into(imageView);
-
+                                String id = card.getString("id");
                                 view.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
                                         Intent intent = new Intent(getContext(), Description.class);
                                         intent.putExtra("description", card.toString());
                                         intent.putExtra("username", username);
+                                        intent.putExtra("id", id);
                                         //intent.putExtra("url", get_shows_watched_path);
                                         intent.putExtra("resumeFlag", "0");
                                         Movies.this.startActivityForResult(intent, 1);
@@ -464,6 +467,7 @@ public class Movies extends Fragment {
                                 String album_art_path = card.getString("album_art_path");
                                 if(!album_art_path.isEmpty())
                                     Glide.with(getContext()).load(album_art_path).into(imageView);
+                                String id = card.getString("id");
 
                                 view.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -471,6 +475,7 @@ public class Movies extends Fragment {
                                         Intent intent = new Intent(getContext(), Description.class);
                                         intent.putExtra("description", card.toString());
                                         intent.putExtra("username", username);
+                                        intent.putExtra("id", id);
                                         //intent.putExtra("url", get_shows_watched_path);
                                         intent.putExtra("resumeFlag", "1");
                                         getActivity().startActivity(intent);
@@ -517,6 +522,7 @@ public class Movies extends Fragment {
                                 String album_art_path = card.getString("album_art_path");
                                 if(!album_art_path.isEmpty())
                                     Glide.with(getContext()).load(album_art_path).into(imageView);
+                                String id = card.getString("id");
 
                                 view.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -524,6 +530,7 @@ public class Movies extends Fragment {
                                         Intent intent = new Intent(getContext(), Description.class);
                                         intent.putExtra("description", card.toString());
                                         intent.putExtra("username", username);
+                                        intent.putExtra("id", id);
                                         //intent.putExtra("url", get_shows_watched_path);
                                         intent.putExtra("resumeFlag", "0");
                                         Movies.this.startActivityForResult(intent, 1);

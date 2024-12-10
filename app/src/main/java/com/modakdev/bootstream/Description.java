@@ -42,6 +42,7 @@ public class Description extends AppCompatActivity {
     static String resumeFlag = null, name = null;
     static String activityResume = "0";
     private static String username = "";
+    private static String id = "";
     private static String descriptionStr = "";
     private static String imageUrl = "";
 
@@ -199,7 +200,7 @@ public class Description extends AppCompatActivity {
                     rem = (rem/dur)*100;
                     if (rem >= 5)
                     {
-                        Movies.pingDataServer(Profiles.record_position_path+"?username="+username+"&show="+ URLDecoder.decode(uri.toString(), "UTF-8")+"&pos="+pos+"&duration="+dur+"&cause="+cause+"&name="+name);
+                        Movies.pingDataServer(Profiles.record_position_path+"?username="+username+"&show="+ URLDecoder.decode(uri.toString(), "UTF-8")+"&pos="+pos+"&duration="+dur+"&cause="+cause+"&name="+name+"&id="+id);
                     }
 
                     else
@@ -284,7 +285,11 @@ public class Description extends AppCompatActivity {
 
         final SwipeRefreshLayout pullToRefresh = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshDesc);
         if(getIntent().hasExtra("username"))
+        {
             username = getIntent().getStringExtra("username");
+            id = getIntent().getStringExtra("id");
+        }
+
 
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
