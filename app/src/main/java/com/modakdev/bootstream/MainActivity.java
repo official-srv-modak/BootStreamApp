@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity{
                 } else if (id == R.id.resetProfile) {
                     resetProfile("Do you really want to reset all your watching history?");
                 } else if (id == R.id.contactUs) {
-                    showContactUs("Developers - Sourav Modak, Bhavdeep Singh, Tisha Mogha\nContact Number - +1 437 602 9840\nE-Mail - official.srv.modak@gmail.com.");
+                    showContactUs("Developer - Sourav Modak\nContact Number - +1 437 602 9840\nE-Mail - official.srv.modak@gmail.com.");
                 } else if (id == R.id.resetIp) {
                     showServerDialogNoExit(getString(R.string.reset_ip_message));
                 }
