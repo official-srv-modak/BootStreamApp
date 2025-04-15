@@ -5,6 +5,7 @@ import static com.modakdev.bootstream.Profiles.ipInfoFilePath;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -108,10 +109,13 @@ public class MainActivity extends AppCompatActivity{
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Perform your action here
-                Intent intent = new Intent(MainActivity.this, CameraActivity.class);
-                startActivity(intent);            }
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.souravmodak.arcinema", "com.souravmodak.arcinema.SplashActivity"));
+                startActivity(intent);
+
+            }
         });
+
     }
 
 

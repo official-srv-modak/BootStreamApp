@@ -103,13 +103,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="10pt"
                 android:layout_marginHorizontal="10pt"
                 android:layout_marginBottom="10pt"
                 android:background="@color/black"
-                android:layout_margin="10pt"
-                android:text="Play with MX Player" />
+                android:text="Play" />
 
-<!--            <Button-->
+            <!--            <Button-->
 <!--                android:id="@+id/playBtn"-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="wrap_content"-->

@@ -34,7 +34,7 @@ import java.io.ObjectOutputStream;
 public class Profiles extends AppCompatActivity {
 
     //public static String ip = "3.108.236.185", ipInfoFilePath = "";
-    public static String ip = "192.168.93.1", ipInfoFilePath = "";
+    public static String ip = "10.0.0.47", ipInfoFilePath = "";
 
     public static String domain_name = "http://"+ip;
     public static String record_position_path = domain_name+"/record_position.php";
@@ -100,7 +100,7 @@ public class Profiles extends AppCompatActivity {
 
         overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
         ipInfoFilePath = getApplicationContext().getFilesDir().getAbsolutePath() + "/ipInfo.dat";
-        ip = fetchIpDataFromFile(ipInfoFilePath);
+        //ip = fetchIpDataFromFile(ipInfoFilePath);
 
         domain_name = "http://"+ip;
         record_position_path = domain_name+"/record_position.php";
